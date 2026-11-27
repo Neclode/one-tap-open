@@ -10,6 +10,12 @@ ii "C:\Users\you\Videos\render.mp4"
 
 You tap Run and the file opens in your default app. On macOS it uses `open`, on Linux `xdg-open`. I've tested it on Windows; if something's off on Mac or Linux, open an issue. Files inside the session folder still get normal links.
 
+## Code files open in your editor
+
+For code and text files, it opens them in your editor at the right line instead, for example `code -g "C:\repo\app.py:42"`. It works with VS Code, Cursor, Windsurf, Zed, Sublime Text and IntelliJ (`idea`), as long as the editor's command-line launcher is installed.
+
+You don't have to set anything up. At session start it checks which of those editors you have. If there's one, it uses that. If there are several, Claude asks you once the first time it opens a code file and remembers your answer in `~/.one-tap-open.json`. To change it later, run `/one-tap-open:editor` or just tell Claude.
+
 ## Install
 
 In Claude Code:
@@ -23,11 +29,11 @@ Start a new session (or `/clear`) and it's active.
 
 ## How it works
 
-It's one SessionStart hook that adds a short rule (about 250 tokens) to the session's context. That's it. Read [rule.md](rule.md); it's the whole plugin. It only applies in the desktop app, since the terminal CLI and the web don't have a Run button.
+It's one SessionStart hook that adds a short rule (about 500 tokens) to the session's context, plus one line saying which editor to use. Read [rule.md](rule.md) and the two scripts in [hooks/](hooks); that's the whole plugin. It only applies in the desktop app, since the terminal CLI and the web don't have a Run button.
 
 ## Safety
 
-You're tapping Run on a command Claude wrote, so the rule is strict: the open command plus one quoted absolute path, nothing chained, no pipes, no flags. Still, glance at the block before you tap it, same as any command.
+You're tapping Run on a command Claude wrote, so the rule is strict: the open command plus one quoted absolute path, nothing chained, no pipes, and no flags except the editor's own go-to-line flag. Still, glance at the block before you tap it, same as any command.
 
 ## When to uninstall
 

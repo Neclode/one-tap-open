@@ -6,9 +6,9 @@
         "hooks": [
           {
             "type": "command",
-            "command": "cat \"${CLAUDE_PLUGIN_ROOT}/rule.md\"",
-            "commandWindows": "Get-Content -Raw \"$env:CLAUDE_PLUGIN_ROOT\rule.md\"",
-            "timeout": 5
+            "command": "sh \"${CLAUDE_PLUGIN_ROOT}/hooks/session.sh\"",
+            "commandWindows": "powershell -NoProfile -ExecutionPolicy Bypass -File \"$env:CLAUDE_PLUGIN_ROOT\\hooks\\session.ps1\"",
+            "timeout": 10
           }
         ]
       }

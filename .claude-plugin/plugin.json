@@ -1,6 +1,6 @@
 {
   "name": "one-tap-open",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "In the Claude desktop app, hand over files outside the session folder as one-tap Run blocks that open them, instead of dead links.",
   "author": { "name": "Neclode", "url": "https://github.com/Neclode" },
   "license": "MIT"
