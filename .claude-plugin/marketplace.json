@@ -1,0 +1,14 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "one-tap-open",
+  "description": "One-tap file opening for Claude Code in the desktop app.",
+  "owner": { "name": "Neclode", "url": "https://github.com/Neclode" },
+  "plugins": [
+    {
+      "name": "one-tap-open",
+      "description": "Files outside the session folder come back as a Run block that opens them in one tap.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}
